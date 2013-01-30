@@ -1,0 +1,31 @@
+# osx noise
+.DS_Store
+profile
+
+# xcode noise
+build/*
+*.mode1
+*.mode1v3
+*.mode2v3
+*.perspective
+*.perspectivev3
+*.pbxuser
+*.xcworkspace
+xcuserdata
+
+# svn & cvs
+.svn
+CVS
+
+# bbedit project file
+Blackjack.bbprojectd
+
+# Adobe Illustrator files
+Illustrator files
+*.ai
+
+# control flow document (my reference)
+Blackjack control flow.md
+
+# Old version
+Old
