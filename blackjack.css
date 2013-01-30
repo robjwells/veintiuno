@@ -1,0 +1,147 @@
+@font-face {
+  font-family: 'LeagueGothicRegular';
+  src: url('./leaguegothic.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+}
+
+
+/*! Background gradient wrangling */
+
+html, body {
+  min-height: 100%;
+  height: 100%;
+  font: normal 150%/1 "LeagueGothicRegular", "League Gothic";
+  background-color: #B00000;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto;
+  width: 100%;
+  background: -webkit-radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background-repeat: no-repeat;
+}
+
+.content-wrapper {
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Gradient background for elements */
+.bg {
+  background: -webkit-linear-gradient(#F90A0A 0%, #D90A0A 100%);
+  background:    -moz-linear-gradient(#F90A0A 0%, #D90A0A 100%);
+  background:     -ms-linear-gradient(#F90A0A 0%, #D90A0A 100%);
+  background:      -o-linear-gradient(#F90A0A 0%, #D90A0A 100%);
+  background:         linear-gradient(#F90A0A 0%, #D90A0A 100%);
+}
+
+
+/*! Heading styles */
+
+h1 {
+  font-size: 1.6em;
+  padding-top: 5px;
+  padding-top: 1vh;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.15em;
+  color: white;
+  text-align: center;
+}
+
+
+/*! Score bar styles */
+.score-bar {
+  position: relative;
+  border-top: 3px double #F8B419;
+  border-bottom: 3px double #F8B419;
+  padding: 0.1em 3% 0.1em 10%;
+  background-image: url(Star.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size:contain;
+}
+
+.score {
+  display: inline-block;
+  width: 45%;
+}
+
+#d-count {
+  text-align: right;
+}
+
+
+/*! Card area */
+.table {
+  margin: 2.5%;
+  min-height: 48vh;
+  background-image: -webkit-linear-gradient(0deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
+}
+
+.hand {
+  width: 49.9%; /* border fix */
+  text-align: center;
+  float: left;
+}
+#player {
+/*   border-right: 1px solid #F8B419; */
+}
+
+
+/*! Player controls */
+.controls {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 12.5%;
+  min-height: 1.75rem;
+/*   padding: 0.25em 7.5% 0; */
+  background: #B00000;
+}
+
+.player-btn {
+  -webkit-transition: opacity ease 1s;
+     -moz-transition: opacity ease 1s;
+      -ms-transition: opacity ease 1s;
+       -o-transition: opacity ease 1s;
+          transition: opacity ease 1s;
+
+  font-family: "LeagueGothicRegular", "League Gothic";
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: #FAFAFA;
+  text-shadow: #444 -0.05em -0.05em 0.0075em;
+  width: 49.99%;
+  height: 100%;
+/*
+  width: 45%;
+  height: 80%;
+*/
+  border: none;
+/*   border-radius: 0.4rem; */
+/*   box-shadow: 0.1rem 0.1rem 0.3rem #000; */
+}
+
+.player-btn:active {
+  background: -webkit-linear-gradient(#D90A0A 0%, #F90A0A 100%);
+  background:    -moz-linear-gradient(#D90A0A 0%, #F90A0A 100%);
+  background:     -ms-linear-gradient(#D90A0A 0%, #F90A0A 100%);
+  background:      -o-linear-gradient(#D90A0A 0%, #F90A0A 100%);
+  background:         linear-gradient(#D90A0A 0%, #F90A0A 100%);
+
+/*   box-shadow: inset 0 0 0.6rem rgba(0,0,0,0.9); */
+  line-height: 1.3; /* So the text moves down */
+  color: #F0F0F0;
+}
+#hit {
+  float: left;
+}
+#stand {
+  float: right;
+}

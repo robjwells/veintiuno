@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Black Jack&rsquo;s Casino</title>
+  <link rel="stylesheet" href="reset.css" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="blackjack.css" title="main" type="text/css" media="screen" charset="utf-8">
+  <script src="blackjack.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+<div class="wrapper">
+<div class="content-wrapper">
+
+  <header>
+    <h1>Black Jack&rsquo;s Casino</h1>
+<!--     <h2>Start Dealer Win</h2> -->
+  </header>
+
+  <div class="overlays">
+    <div id="start" class="overlay-large"></div>
+    <div id="results" class="overlay-large"></div>
+    <div id="status" class="overlay-pop"></div>
+  </div> <!-- .overlays -->
+  
+  <div class="score-bar">
+    <div id="p-count" class="score">Player: 0</div>
+    <div id="d-count" class="score">Dealer: 0</div>
+  </div> <!-- .score-bar -->
+  
+  <div class="table">
+    <div id="player" class="hand">a</div>
+    <div id="dealer" class="hand">a</div>
+  </div> <!-- .table -->
+  
+  <div class="controls">
+    <button id="hit" class="player-btn bg">Hit</button>
+    <button id="stand" class="player-btn bg">Stand</button>
+  </div> <!-- .controls -->
+
+</div> <!-- .content-wrapper -->
+</div> <!-- .wrapper -->
+</body>
+
+</html>

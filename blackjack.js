@@ -666,23 +666,20 @@ var BJ = (function () {
 
     // Add initial event listeners
     window.addEventListener('load', function () {
-        var startBox = getId('start'),
-            aboutButton = getId('about-button');
+//         var startBox = getId('start'),
+//             aboutButton = getId('about-button');
 
         // Enable start button that begins the game
-        startBox.addEventListener('click', start, false);
+//         startBox.addEventListener('click', start, false);
 
         // Enable about button chip
-        aboutButton.addEventListener('click', about, false);
+//         aboutButton.addEventListener('click', about, false);
 
         // Make taps in iOS trigger button:active
         document.addEventListener('touchstart', function () {}, false);
         
-        // Hide the address bar on phones
-        //        window.scrollTo(0, 1);
-        // This needs some work (in the css)
-        
-    }, false);
+    });
+
 
     // Create an object to store in BJ and return it
     return (function () {
