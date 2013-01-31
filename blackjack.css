@@ -61,7 +61,7 @@ h2 {
   border-top: 3px double #F8B419;
   border-bottom: 3px double #F8B419;
   padding: 0.1em 3% 0.1em 10%;
-  background-image: url(Star.svg);
+  background-image: url(svg/star.svg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size:contain;
@@ -85,14 +85,11 @@ h2 {
 }
 
 .hand {
-  width: 49.9%; /* border fix */
+  width: 47.5%; /* border fix */
+/*   padding-top: 30vh; */
   text-align: center;
   float: left;
 }
-#player {
-/*   border-right: 1px solid #F8B419; */
-}
-
 
 /*! Player controls */
 .controls {
@@ -144,4 +141,128 @@ h2 {
 }
 #stand {
   float: right;
+}
+
+
+/*! Card styles */
+
+.card {
+  position: inherit;
+  display: inline-block;
+/*
+  height: 10rem;
+  width: 6.6rem;
+*/
+  width: 40vw;
+  height: 60vw;
+  margin-right: -0.5rem;
+  margin-bottom: -47vw;
+  
+  -webkit-transform-style: preserve-3d;
+     -moz-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+       -o-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: all 1s ease-out;
+     -moz-transition: all 1s ease-out;
+      -ms-transition: all 1s ease-out;
+       -o-transition: all 1s ease-out;
+          transition: all 1s ease-out;
+}
+
+.wayoff {
+  left: -200%;
+}
+
+.front, .back {
+  -webkit-backface-visibility: hidden;
+     -moz-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+       -o-backface-visibility: hidden;
+          backface-visibility: hidden;
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  
+  border-radius: 0.35rem;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  box-shadow: 0.1rem 0.1rem 0.3rem #333;
+}
+.front {
+  z-index: 3;
+  background-color: #FAFAFA;
+  line-height: 1;
+}
+.back {
+  z-index: 1;
+  -webkit-transform: rotateY(180deg);
+     -moz-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+       -o-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  
+  background-color: #2672B2;
+  background-image: url("svg/back.svg");
+}
+
+.hearts, .diamonds { color: #D40000; }
+
+.diamonds .front { background-image: url("svg/diamond.svg"); }
+  .hearts .front { background-image: url("svg/heart.svg"); }
+  .spades .front { background-image: url("svg/spade.svg"); }
+   .clubs .front { background-image: url("svg/club.svg"); }
+
+.num {
+  font-size: 1.75rem;
+  z-index: 4;
+  position: relative;
+}
+
+.tl {
+  text-align: left;
+  float: left;
+  top: 0.35rem;
+  left: 0.35rem;
+}
+
+.br {
+  text-align: right;
+  float: right;
+}
+
+.tilt-left {
+  -webkit-transform: rotate(-3deg);
+     -moz-transform: rotate(-3deg);
+      -ms-transform: rotate(-3deg);
+       -o-transform: rotate(-3deg);
+          transform: rotate(-3deg);
+}
+
+.tilt-left.flipped {
+  -webkit-transform: rotateY(180deg) rotate(3deg);
+     -moz-transform: rotateY(180deg) rotate(3deg);
+      -ms-transform: rotateY(180deg) rotate(3deg);
+       -o-transform: rotateY(180deg) rotate(3deg);
+          transform: rotateY(180deg) rotate(3deg);
+}
+
+.tilt-right {
+  -webkit-transform: rotate(3deg);
+     -moz-transform: rotate(3deg);
+      -ms-transform: rotate(3deg);
+       -o-transform: rotate(3deg);
+          transform: rotate(3deg);
+}
+
+.tilt-right.flipped {
+  -webkit-transform: rotateY(180deg) rotate(-3deg);
+     -moz-transform: rotateY(180deg) rotate(-3deg);
+      -ms-transform: rotateY(180deg) rotate(-3deg);
+       -o-transform: rotateY(180deg) rotate(-3deg);
+          transform: rotateY(180deg) rotate(-3deg);
 }
