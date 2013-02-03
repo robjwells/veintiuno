@@ -14,6 +14,7 @@ html, body {
   height: 100%;
   font: normal 150%/1 "LeagueGothicRegular", "League Gothic";
   background-color: #B00000;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
 .wrapper {
@@ -25,9 +26,22 @@ html, body {
 }
 
 .content-wrapper {
-  margin: 0 auto;
+/*   margin: 0 auto; */
   position: relative;
 }
+
+
+/*! Utility styles */
+.hide {
+  opacity: 0;
+  z-index: -5 !important;
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+       -o-transition: all 1s ease;
+          transition: all 1s ease;
+}
+
 
 /* Gradient background for elements */
 .bg {
@@ -42,16 +56,32 @@ html, body {
 /*! Heading styles */
 
 h1 {
-  font-size: 1.6em;
+  font-size: 1.65em;
   padding-top: 5px;
   padding-top: 1vh;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.15em;
+  font-size: 1.3em;
   color: white;
   text-align: center;
+}
+
+/*! Generic button style */
+.btn {
+    -webkit-transition: opacity ease 1s;
+     -moz-transition: opacity ease 1s;
+      -ms-transition: opacity ease 1s;
+       -o-transition: opacity ease 1s;
+          transition: opacity ease 1s;
+
+  font-family: "LeagueGothicRegular", "League Gothic";
+  font-size: 1.3rem;
+  line-height: 1.2;
+  color: #FAFAFA;
+  text-shadow: #444 -0.05em -0.05em 0.0075em;
+  border: none;
 }
 
 
@@ -60,7 +90,7 @@ h2 {
   position: relative;
   border-top: 3px double #F8B419;
   border-bottom: 3px double #F8B419;
-  padding: 0.1em 3% 0.1em 10%;
+  padding: 0.1em 0;
   background-image: url(svg/star.svg);
   background-repeat: no-repeat;
   background-position: center center;
@@ -69,26 +99,32 @@ h2 {
 
 .score {
   display: inline-block;
-  width: 45%;
-}
-
-#d-count {
-  text-align: right;
+  margin: -3px;
+  width: 50%;
+  text-align: center;
 }
 
 
 /*! Card area */
 .table {
-  margin: 2.5%;
+  width: 100%;
+  height: 100%:
+  margin: 4% 0;
   min-height: 48vh;
   background-image: -webkit-linear-gradient(0deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
 }
 
 .hand {
-  width: 47.5%; /* border fix */
-/*   padding-top: 30vh; */
+  width: 50%;
+  height: 100%;
   text-align: center;
   float: left;
+  position: relative;
+}
+
+#dealer {
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
 }
 
 /*! Player controls */
@@ -102,38 +138,19 @@ h2 {
   background: #B00000;
 }
 
-.player-btn {
-  -webkit-transition: opacity ease 1s;
-     -moz-transition: opacity ease 1s;
-      -ms-transition: opacity ease 1s;
-       -o-transition: opacity ease 1s;
-          transition: opacity ease 1s;
-
-  font-family: "LeagueGothicRegular", "League Gothic";
-  font-size: 1.3rem;
-  line-height: 1.2;
-  color: #FAFAFA;
-  text-shadow: #444 -0.05em -0.05em 0.0075em;
+.player-btn { /* Extends .btn */
   width: 49.99%;
   height: 100%;
-/*
-  width: 45%;
-  height: 80%;
-*/
-  border: none;
-/*   border-radius: 0.4rem; */
-/*   box-shadow: 0.1rem 0.1rem 0.3rem #000; */
 }
 
-.player-btn:active {
+.btn:active {
   background: -webkit-linear-gradient(#D90A0A 0%, #F90A0A 100%);
   background:    -moz-linear-gradient(#D90A0A 0%, #F90A0A 100%);
   background:     -ms-linear-gradient(#D90A0A 0%, #F90A0A 100%);
   background:      -o-linear-gradient(#D90A0A 0%, #F90A0A 100%);
   background:         linear-gradient(#D90A0A 0%, #F90A0A 100%);
 
-/*   box-shadow: inset 0 0 0.6rem rgba(0,0,0,0.9); */
-  line-height: 1.3; /* So the text moves down */
+  line-height: 1.5; /* So the text moves down */
   color: #F0F0F0;
 }
 #hit {
@@ -147,7 +164,7 @@ h2 {
 /*! Card styles */
 
 .card {
-  position: inherit;
+  position: relative;
   display: inline-block;
 /*
   height: 10rem;
@@ -155,8 +172,7 @@ h2 {
 */
   width: 40vw;
   height: 60vw;
-  margin-right: -0.5rem;
-  margin-bottom: -47vw;
+  margin-bottom: -50vw;
   
   -webkit-transform-style: preserve-3d;
      -moz-transform-style: preserve-3d;
@@ -186,8 +202,8 @@ h2 {
   left: 0;
   height: 100%;
   width: 100%;
-  
-  border-radius: 0.35rem;
+
+  border-radius: 2vw;
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
@@ -218,21 +234,21 @@ h2 {
    .clubs .front { background-image: url("svg/club.svg"); }
 
 .num {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   z-index: 4;
-  position: relative;
+  position: absolute;
 }
 
 .tl {
   text-align: left;
-  float: left;
-  top: 0.35rem;
-  left: 0.35rem;
+  top: 3%;
+  left: 4%;
 }
 
 .br {
   text-align: right;
-  float: right;
+  bottom: 2%;
+  right: 4%;
 }
 
 .tilt-left {
@@ -260,9 +276,215 @@ h2 {
 }
 
 .tilt-right.flipped {
-  -webkit-transform: rotateY(180deg) rotate(-3deg);
+  -webkit-transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
      -moz-transform: rotateY(180deg) rotate(-3deg);
       -ms-transform: rotateY(180deg) rotate(-3deg);
        -o-transform: rotateY(180deg) rotate(-3deg);
           transform: rotateY(180deg) rotate(-3deg);
+}
+
+/*! Overlay styles */
+.overlay {
+  position: absolute;
+  z-index: 100;
+  border: 0.15em solid #D90A0A;
+  border-radius: 0.4em;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.75);
+}
+
+.o-large {
+  top: -0.5em;
+  width: 70%;
+  padding: 0.1em 2.5% 0.35em;
+  margin: 10% 12.5%;
+}
+
+.o-pop {
+  width: 50%;
+  padding: 0.25em;
+  margin: 10% 22%;
+}
+
+.o-btn { /* Extends .btn */
+  display: block;
+  border-radius: 0.4rem;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.75);
+  width: 5em;
+  height: 1.5em;
+  margin: 0 auto;
+}
+.o-btn:active {
+  box-shadow: inset 0 0 0.6rem rgba(0,0,0,0.75);
+  line-height: 1.6;
+}
+
+.o-text {
+  color: white;
+  text-align: center;
+  font-size: 0.7em;
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
+}
+
+#start {
+  top: 1em;
+}
+
+
+/*! About chip */
+#about-button {
+  display: none;
+}
+
+/*! Animation styles */
+
+.animated {
+	-webkit-animation-fill-mode: both;
+     -moz-animation-fill-mode: both;
+      -ms-animation-fill-mode: both;
+       -o-animation-fill-mode: both;
+          animation-fill-mode: both;
+  -webkit-animation-duration: 1s;
+     -moz-animation-duration: 1s;
+      -ms-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes bounceInDown {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(-2000px);
+	}
+	60% {
+		opacity: 1;
+		-webkit-transform: translateY(30px);
+	}
+	80% {
+		-webkit-transform: translateY(-10px);
+	}
+	100% {
+		-webkit-transform: translateY(0);
+	}
+}
+
+@-moz-keyframes bounceInDown {
+	0% {
+		opacity: 0;
+		-moz-transform: translateY(-2000px);
+	}
+	60% {
+		opacity: 1;
+		-moz-transform: translateY(30px);
+	}
+	80% {
+		-moz-transform: translateY(-10px);
+	}
+	100% {
+		-moz-transform: translateY(0);
+	}
+}
+
+@-o-keyframes bounceInDown {
+	0% {
+		opacity: 0;
+		-o-transform: translateY(-2000px);
+	}
+	60% {
+		opacity: 1;
+		-o-transform: translateY(30px);
+	}
+	80% {
+		-o-transform: translateY(-10px);
+	}
+	100% {
+		-o-transform: translateY(0);
+	}
+}
+
+@keyframes bounceInDown {
+	0% {
+		opacity: 0;
+		transform: translateY(-2000px);
+	}
+	60% {
+		opacity: 1;
+		transform: translateY(30px);
+	}
+	80% {
+	transform: translateY(-10px);
+	}
+	100% {
+	transform: translateY(0);
+	}
+}
+
+.bounceInDown {
+	-webkit-animation-name: bounceInDown;
+     -moz-animation-name: bounceInDown;
+       -o-animation-name: bounceInDown;
+          animation-name: bounceInDown;
+}
+
+@-webkit-keyframes bounceOutUp {
+	0% {
+		-webkit-transform: translateY(0);
+	}
+	20% {
+		opacity: 1;
+		-webkit-transform: translateY(20px);
+	}
+	100% {
+		opacity: 0;
+		-webkit-transform: translateY(-2000px);
+	}
+}
+
+@-moz-keyframes bounceOutUp {
+	0% {
+		-moz-transform: translateY(0);
+	}
+	20% {
+		opacity: 1;
+		-moz-transform: translateY(20px);
+	}
+	100% {
+		opacity: 0;
+		-moz-transform: translateY(-2000px);
+	}
+}
+
+@-o-keyframes bounceOutUp {
+	0% {
+		-o-transform: translateY(0);
+	}
+	20% {
+		opacity: 1;
+		-o-transform: translateY(20px);
+	}
+	100% {
+		opacity: 0;
+		-o-transform: translateY(-2000px);
+	}
+}
+
+@keyframes bounceOutUp {
+	0% {
+		transform: translateY(0);
+	}
+	20% {
+		opacity: 1;
+		transform: translateY(20px);
+	}
+	100% {
+		opacity: 0;
+		transform: translateY(-2000px);
+	}
+}
+
+.bounceOutUp {
+	-webkit-animation-name: bounceOutUp;
+     -moz-animation-name: bounceOutUp;
+       -o-animation-name: bounceOutUp;
+          animation-name: bounceOutUp;
 }

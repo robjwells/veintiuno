@@ -3,11 +3,11 @@
 
 <head>
   <title>Black Jack&rsquo;s Casino</title>
-  <link rel="stylesheet" href="reset.css" type="text/css" media="screen" charset="utf-8">
-  <link rel="stylesheet" href="blackjack.css" title="main" type="text/css" media="screen" charset="utf-8">
+  <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="blackjack.css" title="main" type="text/css" media="screen">
   <script src="blackjack.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+<!--   <meta name="apple-mobile-web-app-capable" content="yes"> -->
 </head>
 
 <body>
@@ -16,13 +16,23 @@
 
   <header>
     <h1>Black Jack&rsquo;s Casino</h1>
-<!--     <h2>Start Dealer Win</h2> -->
   </header>
 
-  <div class="overlays">
-    <div id="start" class="overlay-large"></div>
-    <div id="results" class="overlay-large"></div>
-    <div id="status" class="overlay-pop"></div>
+  <div id="overlays">
+    <div id="start" class="overlay bg o-large animated">
+      <h2>Welcome</h2>
+      <p class="o-text">Click the button when you&rsquo;re ready to start.</p>
+      <button id="play" class="btn o-btn bg">Let&rsquo;s play!</button>
+    </div>
+    <div id="results" class="overlay bg o-large hide animated">
+      <h2 id="winner"></h2>
+      <p id="playercards" class="o-text"></p>
+      <p id="dealercards" class="o-text"></p>
+      <button id="again" class="btn o-btn bg">Play again</button>
+    </div>
+    <div id="status" class="overlay bg o-pop hide">
+      <h2 id="status-text"></h2>
+    </div>
   </div> <!-- .overlays -->
   
   <div class="score-bar">
@@ -32,80 +42,25 @@
   
   <div class="table">
     <div id="player" class="hand">
-      <div class="card clubs tilt-left">
-        <div class="front">
-          <div class="num tl">8</div>
-          <div class="num br">8</div>
-        </div>
-        <div class="back"></div>
-      </div>
-      
-      <div class="card diamonds tilt-right">
-        <div class="front">
-          <div class="num tl">8</div>
-          <div class="num br">8</div>
-        </div>
-        <div class="back"></div>
-      </div>
-      
-      <div class="card hearts tilt-left">
-        <div class="front">
-          <div class="num tl">A</div>
-          <div class="num br">A</div>
-        </div>
-        <div class="back"></div>
-      </div>
-      
-      <div class="card spades tilt-right">
-        <div class="front">
-          <div class="num tl">Q</div>
-          <div class="num br">Q</div>
-        </div>
-        <div class="back"></div>
-      </div>
-      
+      <div class="card tilt-left flipped"><div class="back"></div></div>
+      <div class="card tilt-left flipped"><div class="back"></div></div>
+      <div class="card tilt-left flipped"><div class="back"></div></div>
+      <div class="card tilt-left flipped"><div class="back"></div></div>
     </div>
     <div id="dealer" class="hand">
-      <div class="card clubs tilt-left">
-        <div class="front">
-          <div class="num tl">8</div>
-          <div class="num br">8</div>
-        </div>
-        <div class="back"></div>
-      </div>
-      
-<!--
-      <div class="card diamonds tilt-right">
-        <div class="front">
-          <div class="num tl">8</div>
-          <div class="num br">8</div>
-        </div>
-        <div class="back"></div>
-      </div>
-      
-      <div class="card hearts tilt-left">
-        <div class="front">
-          <div class="num tl">A</div>
-          <div class="num br">A</div>
-        </div>
-        <div class="back"></div>
-      </div>
-      
-      <div class="card spades tilt-right">
-        <div class="front">
-          <div class="num tl">Q</div>
-          <div class="num br">Q</div>
-        </div>
-        <div class="back"></div>
-      </div>
--->
+      <div class="card tilt-right flipped"><div class="back"></div></div>
+      <div class="card tilt-right flipped"><div class="back"></div></div>
+      <div class="card tilt-right flipped"><div class="back"></div></div>
+      <div class="card tilt-right flipped"><div class="back"></div></div>
     </div>
   </div> <!-- .table -->
   
   <div class="controls">
-    <button id="hit" class="player-btn bg">Hit</button>
-    <button id="stand" class="player-btn bg">Stand</button>
+    <button id="hit" class="btn player-btn bg">Hit</button>
+    <button id="stand" class="btn player-btn bg">Stand</button>
   </div> <!-- .controls -->
+  
+  <div id="about-button"></div>
 
 </div> <!-- .content-wrapper -->
 </div> <!-- .wrapper -->

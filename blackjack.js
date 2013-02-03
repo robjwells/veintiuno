@@ -388,9 +388,11 @@ var BJ = (function () {
         startBox.removeEventListener('click', start, false);
         toggleOverlay(startBox);
 
+/*
         // Show the card areas
         removeClass(getId('dealer'), 'hide');
         removeClass(getId('player'), 'hide');
+*/
 
         setTimeout(cleanUp, 250);
     };
@@ -453,8 +455,8 @@ var BJ = (function () {
             }
 
             // Hide the player's controls
-            addClass(hitButton, 'hide');
-            addClass(standButton, 'hide');
+/*             addClass(hitButton, 'hide'); */
+/*             addClass(standButton, 'hide'); */
             hitButton.removeEventListener('click', player.hit, false);
             standButton.removeEventListener('click', stand, false);
 
@@ -474,8 +476,8 @@ var BJ = (function () {
         // Hide the player's controls
         hitButton.removeEventListener('click', player.hit, false);
         standButton.removeEventListener('click', stand, false);
-        addClass(hitButton, 'hide');
-        addClass(standButton, 'hide');
+/*         addClass(hitButton, 'hide'); */
+/*         addClass(standButton, 'hide'); */
 
         // Status message: dealer's turn, reveal hole card, call dealerRoutine
         setTimeout(pop, 1000, 'Dealer\u2019s turn');
@@ -558,8 +560,8 @@ var BJ = (function () {
             resultsEl = getId('results'),
             winnerEl = getId('winner'),
             againButton = getId('again'),
-            wins = getId('wins'),
-            losses = getId('losses');
+            pCount = getId('p-count'),
+            dCount = getId('d-count');
 
         againButton.addEventListener('click', again, false);
 
@@ -577,7 +579,7 @@ var BJ = (function () {
                 winnerEl.innerHTML = 'You win!';
                 // Update player wins counter
                 pTally += 1;
-                wins.innerHTML = +pTally;
+                pCount.innerHTML = +pTally;
 
             } else if (d === 21) {
                 // If dealer has blackjack
@@ -585,7 +587,7 @@ var BJ = (function () {
                 winnerEl.innerHTML = 'The dealer won';
                 //Update dealer wins counter
                 dTally += 1;
-                losses.innerHTML = +dTally;
+                dCount.innerHTML = +dTally;
             }
             // Set the messages and diplay the results overlay
             pSummary.innerHTML = pMsg;
@@ -604,13 +606,13 @@ var BJ = (function () {
                 if (p > d) {
                     winnerEl.innerHTML = 'You win!';
                     pTally += 1;
-                    wins.innerHTML = +pTally;
+                    pCount.innerHTML = +pTally;
 
                 // Dealer score greater than dealer's
                 } else if (d > p) {
                     winnerEl.innerHTML = 'The dealer won';
                     dTally += 1;
-                    losses.innerHTML = +dTally;
+                    dCount.innerHTML = +dTally;
 
                 } else {
                     winnerEl.innerHTML = 'You tied';
@@ -621,7 +623,7 @@ var BJ = (function () {
                 winnerEl.innerHTML = 'You win!';
                 dMsg += ' The dealer is bust.';
                 pTally += 1;
-                wins.innerHTML = +pTally;
+                pCount.innerHTML = +pTally;
             }
 
         // Player is bust
@@ -635,7 +637,7 @@ var BJ = (function () {
                 pMsg += ' You\u2019re bust.';
                 winnerEl.innerHTML = 'The dealer won';
                 dTally += 1;
-                losses.innerHTML = +dTally;
+                dCount.innerHTML = +dTally;
             }
         }
 
@@ -666,14 +668,14 @@ var BJ = (function () {
 
     // Add initial event listeners
     window.addEventListener('load', function () {
-//         var startBox = getId('start'),
-//             aboutButton = getId('about-button');
+        var playButton = getId('play'),
+            aboutButton = getId('about-button');
 
         // Enable start button that begins the game
-//         startBox.addEventListener('click', start, false);
+        playButton.addEventListener('click', start, false);
 
         // Enable about button chip
-//         aboutButton.addEventListener('click', about, false);
+        aboutButton.addEventListener('click', about, false);
 
         // Make taps in iOS trigger button:active
         document.addEventListener('touchstart', function () {}, false);
