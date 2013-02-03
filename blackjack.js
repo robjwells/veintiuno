@@ -128,7 +128,7 @@ var BJ = (function () {
 
         // Show a small, temporary status window
         pop = function (statusText) {
-            var statusPop = getId('status-pop'),
+            var statusPop = getId('status'),
                 statusMsg = getId('status-text');
 
             statusMsg.innerHTML = statusText;
@@ -302,7 +302,7 @@ var BJ = (function () {
 
                 // If player is bust display message and end turn
                 if (who === 'player' && player.getScore() > 21) {
-                    setTimeout(pop, 1250, 'You\u2019re bust');
+                    setTimeout(pop, 1250, 'You<span class="apost">\u2019</span>re bust');
                     return setTimeout(stand, 2500);
                 }
             };
@@ -480,7 +480,7 @@ var BJ = (function () {
 /*         addClass(standButton, 'hide'); */
 
         // Status message: dealer's turn, reveal hole card, call dealerRoutine
-        setTimeout(pop, 1000, 'Dealer\u2019s turn');
+        setTimeout(pop, 1000, 'Dealer<span class="apost">\u2019</span>s turn');
         flip();
         return setTimeout(dealerRoutine, 3500);
     };
@@ -579,7 +579,7 @@ var BJ = (function () {
                 winnerEl.innerHTML = 'You win!';
                 // Update player wins counter
                 pTally += 1;
-                pCount.innerHTML = +pTally;
+                pCount.innerHTML = 'Player: ' + pTally;
 
             } else if (d === 21) {
                 // If dealer has blackjack
@@ -587,7 +587,7 @@ var BJ = (function () {
                 winnerEl.innerHTML = 'The dealer won';
                 //Update dealer wins counter
                 dTally += 1;
-                dCount.innerHTML = +dTally;
+                dCount.innerHTML = 'Dealer: ' + dTally;
             }
             // Set the messages and diplay the results overlay
             pSummary.innerHTML = pMsg;
@@ -606,13 +606,13 @@ var BJ = (function () {
                 if (p > d) {
                     winnerEl.innerHTML = 'You win!';
                     pTally += 1;
-                    pCount.innerHTML = +pTally;
+                    pCount.innerHTML = 'Player: ' + pTally;
 
                 // Dealer score greater than dealer's
                 } else if (d > p) {
                     winnerEl.innerHTML = 'The dealer won';
                     dTally += 1;
-                    dCount.innerHTML = +dTally;
+                    dCount.innerHTML = 'Dealer: ' + dTally;
 
                 } else {
                     winnerEl.innerHTML = 'You tied';
@@ -623,21 +623,21 @@ var BJ = (function () {
                 winnerEl.innerHTML = 'You win!';
                 dMsg += ' The dealer is bust.';
                 pTally += 1;
-                pCount.innerHTML = +pTally;
+                pCount.innerHTML = 'Player: ' + pTally;
             }
 
         // Player is bust
         } else {
             // Dealer is also bust
             if (d > 21) {
-                winnerEl.innerHTML = 'You\u2019re both bust';
+                winnerEl.innerHTML = 'You<span class="apost">\u2019re</span> both bust';
 
             // Dealer is not bust
             } else {
-                pMsg += ' You\u2019re bust.';
+                pMsg += ' You<span class="apost">\u2019re</span> bust.';
                 winnerEl.innerHTML = 'The dealer won';
                 dTally += 1;
-                dCount.innerHTML = +dTally;
+                dCount.innerHTML = 'Dealer: ' + dTally;
             }
         }
 
@@ -659,8 +659,10 @@ var BJ = (function () {
         toggleOverlay(resultsEl);
 
         // Show player controls
+/*
         removeClass(hitButton, 'hide');
         removeClass(standButton, 'hide');
+*/
 
         // Clear the old cards (starts the cycle again)
         cleanUp();

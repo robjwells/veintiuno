@@ -26,7 +26,6 @@ html, body {
 }
 
 .content-wrapper {
-/*   margin: 0 auto; */
   position: relative;
 }
 
@@ -56,31 +55,34 @@ html, body {
 /*! Heading styles */
 
 h1 {
-  font-size: 1.65em;
-  padding-top: 5px;
+  font-size: 18vw;
+  padding-top: 5px; 
   padding-top: 1vh;
   text-align: center;
 }
 
 h2 {
-  font-size: 1.3em;
+  font-size: 12vw;
   color: white;
   text-align: center;
 }
 
+.apost {
+  margin-right: -0.065em;
+}
+
 /*! Generic button style */
 .btn {
-    -webkit-transition: opacity ease 1s;
+  -webkit-transition: opacity ease 1s;
      -moz-transition: opacity ease 1s;
       -ms-transition: opacity ease 1s;
        -o-transition: opacity ease 1s;
           transition: opacity ease 1s;
 
   font-family: "LeagueGothicRegular", "League Gothic";
-  font-size: 1.3rem;
   line-height: 1.2;
   color: #FAFAFA;
-  text-shadow: #444 -0.05em -0.05em 0.0075em;
+  text-shadow: #444 -0.1vw -0.1vw 0.01vw;
   border: none;
 }
 
@@ -108,7 +110,7 @@ h2 {
 /*! Card area */
 .table {
   width: 100%;
-  height: 100%:
+  height: 100%;
   margin: 4% 0;
   min-height: 48vh;
   background-image: -webkit-linear-gradient(0deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
@@ -124,6 +126,7 @@ h2 {
 
 #dealer {
   -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
   perspective: 1000px;
 }
 
@@ -132,14 +135,16 @@ h2 {
   position: fixed;
   bottom: 0;
   width: 100%;
-  height: 12.5%;
+  height: 15%;
   min-height: 1.75rem;
-/*   padding: 0.25em 7.5% 0; */
   background: #B00000;
 }
 
 .player-btn { /* Extends .btn */
-  width: 49.99%;
+  display: inline-block;
+  font-size: 10vw;
+  margin-right: -3px;
+  width: 49.75%;
   height: 100%;
 }
 
@@ -153,12 +158,14 @@ h2 {
   line-height: 1.5; /* So the text moves down */
   color: #F0F0F0;
 }
+/*
 #hit {
   float: left;
 }
 #stand {
   float: right;
 }
+*/
 
 
 /*! Card styles */
@@ -179,11 +186,11 @@ h2 {
       -ms-transform-style: preserve-3d;
        -o-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-transition: all 1s ease-out;
-     -moz-transition: all 1s ease-out;
-      -ms-transition: all 1s ease-out;
-       -o-transition: all 1s ease-out;
-          transition: all 1s ease-out;
+  -webkit-transition: all 0.75s ease-out;
+     -moz-transition: all 0.75s ease-out;
+      -ms-transition: all 0.75s ease-out;
+       -o-transition: all 0.75s ease-out;
+          transition: all 0.75s ease-out;
 }
 
 .wayoff {
@@ -235,6 +242,7 @@ h2 {
 
 .num {
   font-size: 1.5rem;
+  font-size: 10vw;
   z-index: 4;
   position: absolute;
 }
@@ -277,13 +285,16 @@ h2 {
 
 .tilt-right.flipped {
   -webkit-transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
-     -moz-transform: rotateY(180deg) rotate(-3deg);
-      -ms-transform: rotateY(180deg) rotate(-3deg);
-       -o-transform: rotateY(180deg) rotate(-3deg);
-          transform: rotateY(180deg) rotate(-3deg);
+     -moz-transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
+      -ms-transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
+       -o-transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
+          transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
 }
 
 /*! Overlay styles */
+#overlays {
+  position: relative;
+}
 .overlay {
   position: absolute;
   z-index: 100;
@@ -293,20 +304,30 @@ h2 {
 }
 
 .o-large {
-  top: -0.5em;
   width: 70%;
   padding: 0.1em 2.5% 0.35em;
-  margin: 10% 12.5%;
+  margin: 0 12.5%;
+}
+#start {
+  position: absolute;
+  top: 6vh;
 }
 
 .o-pop {
   width: 50%;
   padding: 0.25em;
   margin: 10% 22%;
+  
+  -webkit-transition: all 1s ease;
+     -moz-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+       -o-transition: all 1s ease;
+          transition: all 1s ease;
 }
 
 .o-btn { /* Extends .btn */
   display: block;
+  font-size: 8vw;
   border-radius: 0.4rem;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.75);
   width: 5em;
@@ -322,12 +343,9 @@ h2 {
   color: white;
   text-align: center;
   font-size: 0.7em;
+  font-size: 7vw;
   margin-top: 0.2em;
   margin-bottom: 0.5em;
-}
-
-#start {
-  top: 1em;
 }
 
 
@@ -367,7 +385,6 @@ h2 {
 		-webkit-transform: translateY(0);
 	}
 }
-
 @-moz-keyframes bounceInDown {
 	0% {
 		opacity: 0;
@@ -384,7 +401,6 @@ h2 {
 		-moz-transform: translateY(0);
 	}
 }
-
 @-o-keyframes bounceInDown {
 	0% {
 		opacity: 0;
@@ -401,7 +417,6 @@ h2 {
 		-o-transform: translateY(0);
 	}
 }
-
 @keyframes bounceInDown {
 	0% {
 		opacity: 0;
@@ -418,7 +433,6 @@ h2 {
 	transform: translateY(0);
 	}
 }
-
 .bounceInDown {
 	-webkit-animation-name: bounceInDown;
      -moz-animation-name: bounceInDown;
@@ -439,7 +453,6 @@ h2 {
 		-webkit-transform: translateY(-2000px);
 	}
 }
-
 @-moz-keyframes bounceOutUp {
 	0% {
 		-moz-transform: translateY(0);
@@ -453,7 +466,6 @@ h2 {
 		-moz-transform: translateY(-2000px);
 	}
 }
-
 @-o-keyframes bounceOutUp {
 	0% {
 		-o-transform: translateY(0);
@@ -467,7 +479,6 @@ h2 {
 		-o-transform: translateY(-2000px);
 	}
 }
-
 @keyframes bounceOutUp {
 	0% {
 		transform: translateY(0);
@@ -481,7 +492,6 @@ h2 {
 		transform: translateY(-2000px);
 	}
 }
-
 .bounceOutUp {
 	-webkit-animation-name: bounceOutUp;
      -moz-animation-name: bounceOutUp;
