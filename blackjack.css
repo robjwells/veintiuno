@@ -22,6 +22,10 @@ html, body {
   height: auto;
   width: 100%;
   background: -webkit-radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background:    -moz-radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background:     -ms-radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background:      -o-radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background:         radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
   background-repeat: no-repeat;
 }
 
@@ -112,8 +116,11 @@ h2 {
   width: 100%;
   height: 100%;
   margin: 4% 0;
-  min-height: 48vh;
   background-image: -webkit-linear-gradient(0deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
+  background-image:    -moz-linear-gradient(90deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
+  background-image:     -ms-linear-gradient(0deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
+  background-image:      -o-linear-gradient(0deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
+  background-image:         linear-gradient(90deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
 }
 
 .hand {
@@ -158,15 +165,6 @@ h2 {
   line-height: 1.5; /* So the text moves down */
   color: #F0F0F0;
 }
-/*
-#hit {
-  float: left;
-}
-#stand {
-  float: right;
-}
-*/
-
 
 /*! Card styles */
 
@@ -284,17 +282,14 @@ h2 {
 }
 
 .tilt-right.flipped {
-  -webkit-transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
-     -moz-transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
-      -ms-transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
-       -o-transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
-          transform: rotateY(180deg) rotate(-3deg) translateZ(-10px);
+  -webkit-transform: rotateY(180deg) rotate(-3deg);
+     -moz-transform: rotateY(180deg) rotate(-3deg);
+      -ms-transform: rotateY(180deg) rotate(-3deg);
+       -o-transform: rotateY(180deg) rotate(-3deg);
+          transform: rotateY(180deg) rotate(-3deg);
 }
 
 /*! Overlay styles */
-#overlays {
-  position: relative;
-}
 .overlay {
   position: absolute;
   z-index: 100;
@@ -349,8 +344,11 @@ h2 {
 }
 
 
-/*! About chip */
-#about-button {
+/*! Hidden elements used in wider layouts */
+.about {
+  display: none;
+}
+.rule {
   display: none;
 }
 
@@ -497,4 +495,163 @@ h2 {
      -moz-animation-name: bounceOutUp;
        -o-animation-name: bounceOutUp;
           animation-name: bounceOutUp;
+}
+
+/*! Media queries */
+@media screen and (min-width: 800px) {
+
+  .b1-sidebar {
+    float: left;
+    margin-top: 2rem;
+    margin-left: 4%;
+  }
+
+  h1 {
+    font-size: 6rem;
+  }
+  h2 {
+    font-size: 3rem;
+  }
+
+  .rule {
+    display: block;
+    height: 0.75rem;
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: -0.25rem;
+    border: none;
+    border-top: medium double #F8B419;
+    border-bottom: medium double #F8B419;
+    color: #F8B419;
+    text-align: center;
+  }
+  .rule:after {
+    content: "* * *";
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 1rem;
+    position: relative;
+    top: -0.2rem;
+  }
+
+  .score-bar {
+    float: left;
+    width: 20%;
+    background-image: none;
+    border: 1px solid black;
+  }
+  .score {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .table {
+    width: 68%;
+    float: right;
+    text-align: right;
+    margin-right: 5%;
+    background: none;
+  }
+  
+  .hand {
+    width: 100%;
+    padding: 1rem 0.50% 1rem 2%;
+    margin: 1.25rem 0 1.5rem;
+    text-align: left;
+  }
+  
+  .hand:before {
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: #F8B419;
+    position: absolute;
+    top: -1.2rem;
+    left: 0.1rem;
+  }
+
+  #dealer {
+    margin-top: 0;
+  }
+
+  #dealer:before {
+    content: "The dealer\2019s cards";
+  }
+  
+  #player {
+    border-bottom: 3px double #F8B419;
+  }
+  #player:before {
+      content: "Your cards";
+  }
+  
+  .card {
+    height: 10rem;
+    width: 6.6rem;
+    margin-bottom: 0;
+    margin-right: -1rem;
+  }
+  
+  .front, .back {
+    border-radius: 0.4rem;
+  }
+  
+  .num {
+    font-size: 2rem;
+  }
+  
+  .controls {
+    position: relative;
+    float: left;
+    width: 20%;
+    background: none;
+    border: 1px solid black;
+  }
+  
+  .player-btn {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .o-large {
+    width: 50%;
+    margin: 5rem 22.5%;
+  }
+  
+  .o-text {
+    font-size: 1.2rem;
+  }
+  
+  .o-btn {
+    font-size: 1.2rem;
+  }
+  
+  .about {
+    display: block;
+    float: left;
+    width: 2.25rem;
+    height: 2.25rem;
+    
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.3rem;
+    font-weight: 500;
+    line-height: 1.76;
+    color: #FAFAFA;
+    
+    -webkit-transform: rotate(-10deg);
+       -moz-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+         -o-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+    
+    border: 0.2rem dashed #FAFAFA;
+    border-radius: 100%;
+    box-shadow: 0.1rem 0.1rem 0.5rem rgba(0,0,0,0.6);
+    
+    background-image: url("svg/disc-red.svg");
+    background-repeat: no-repeat;
+    background-size: 2.7rem 2.7rem;
+    background-position: center center;
+  }
 }

@@ -681,7 +681,6 @@ var BJ = (function () {
 
         // Make taps in iOS trigger button:active
         document.addEventListener('touchstart', function () {}, false);
-        
     });
 
 
