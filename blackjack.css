@@ -45,7 +45,6 @@ html, body {
           transition: all 1s ease;
 }
 
-
 /* Gradient background for elements */
 .bg {
   background: -webkit-linear-gradient(#F90A0A 0%, #D90A0A 100%);
@@ -116,11 +115,6 @@ h2 {
   width: 100%;
   height: 100%;
   margin: 4% 0;
-  background-image: -webkit-linear-gradient(0deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
-  background-image:    -moz-linear-gradient(90deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
-  background-image:     -ms-linear-gradient(0deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
-  background-image:      -o-linear-gradient(0deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
-  background-image:         linear-gradient(90deg, transparent 0%, transparent 49.9%, #F8B419 49.9%, #F8B419 50.1%, transparent 50.1%);
 }
 
 .hand {
@@ -169,6 +163,7 @@ h2 {
 /*! Card styles */
 
 .card {
+  pointer-events: none; /* Hack to deal with over/underlap and blocked taps */
   position: relative;
   display: inline-block;
 /*
@@ -184,11 +179,11 @@ h2 {
       -ms-transform-style: preserve-3d;
        -o-transform-style: preserve-3d;
           transform-style: preserve-3d;
-  -webkit-transition: all 0.75s ease-out;
-     -moz-transition: all 0.75s ease-out;
-      -ms-transition: all 0.75s ease-out;
-       -o-transition: all 0.75s ease-out;
-          transition: all 0.75s ease-out;
+  -webkit-transition: all 1s ease-out;
+     -moz-transition: all 1s ease-out;
+      -ms-transition: all 1s ease-out;
+       -o-transition: all 1s ease-out;
+          transition: all 1s ease-out;
 }
 
 .wayoff {
@@ -208,7 +203,7 @@ h2 {
   height: 100%;
   width: 100%;
 
-  border-radius: 2vw;
+  border-radius: 5%;
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
@@ -507,7 +502,7 @@ h2 {
   }
 
   h1 {
-    font-size: 6rem;
+    font-size: 4rem;
   }
   h2 {
     font-size: 3rem;
@@ -518,7 +513,7 @@ h2 {
     height: 0.75rem;
     padding: 0;
     margin-top: 0;
-    margin-bottom: -0.25rem;
+    margin-bottom: -1rem;
     border: none;
     border-top: medium double #F8B419;
     border-bottom: medium double #F8B419;
@@ -546,7 +541,7 @@ h2 {
   }
   
   .table {
-    width: 68%;
+    width: 70%;
     float: right;
     text-align: right;
     margin-right: 5%;
@@ -555,8 +550,7 @@ h2 {
   
   .hand {
     width: 100%;
-    padding: 1rem 0.50% 1rem 2%;
-    margin: 1.25rem 0 1.5rem;
+    padding: 0.5rem 0.50% 1rem 2%;
     text-align: left;
   }
   
@@ -571,7 +565,7 @@ h2 {
   }
 
   #dealer {
-    margin-top: 0;
+    margin: 0;
   }
 
   #dealer:before {
@@ -579,6 +573,7 @@ h2 {
   }
   
   #player {
+    margin: 1.25rem 0 1.5rem;
     border-bottom: 3px double #F8B419;
   }
   #player:before {
@@ -586,18 +581,16 @@ h2 {
   }
   
   .card {
-    height: 10rem;
-    width: 6.6rem;
+    max-height: 10rem;
+    max-width: 6.6rem;
+    height: 25vh;
+    width: 16.5vh;
     margin-bottom: 0;
     margin-right: -1rem;
   }
   
-  .front, .back {
-    border-radius: 0.4rem;
-  }
-  
   .num {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
   
   .controls {
@@ -611,6 +604,8 @@ h2 {
   .player-btn {
     display: block;
     margin: 0 auto;
+    width: 1rem;
+    height: 1rem;
   }
   
   .o-large {
