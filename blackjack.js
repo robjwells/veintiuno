@@ -388,12 +388,6 @@ var BJ = (function () {
         startBox.removeEventListener('click', start, false);
         toggleOverlay(startBox);
 
-/*
-        // Show the card areas
-        removeClass(getId('dealer'), 'hide');
-        removeClass(getId('player'), 'hide');
-*/
-
         setTimeout(cleanUp, 250);
     };
 
@@ -454,9 +448,7 @@ var BJ = (function () {
                 setTimeout(flip, 1000);
             }
 
-            // Hide the player's controls
-/*             addClass(hitButton, 'hide'); */
-/*             addClass(standButton, 'hide'); */
+            // Disable player's controls
             hitButton.removeEventListener('click', player.hit, false);
             standButton.removeEventListener('click', stand, false);
 
@@ -473,11 +465,9 @@ var BJ = (function () {
         var hitButton = getId('hit'),
             standButton = getId('stand');
 
-        // Hide the player's controls
+        // Disable player's controls
         hitButton.removeEventListener('click', player.hit, false);
         standButton.removeEventListener('click', stand, false);
-/*         addClass(hitButton, 'hide'); */
-/*         addClass(standButton, 'hide'); */
 
         // Status message: dealer's turn, reveal hole card, call dealerRoutine
         setTimeout(pop, 1000, 'Dealer<span class="apost">\u2019</span>s turn');
@@ -650,19 +640,11 @@ var BJ = (function () {
     // Dismiss the results overlay and deal a new hand
     again = function () {
         var resultsEl = getId('results'),
-            hitButton = getId('hit'),
-            standButton = getId('stand'),
             againButton = getId('again');
 
         // Disable play again button and hide overlay
         againButton.removeEventListener('click', again, false);
         toggleOverlay(resultsEl);
-
-        // Show player controls
-/*
-        removeClass(hitButton, 'hide');
-        removeClass(standButton, 'hide');
-*/
 
         // Clear the old cards (starts the cycle again)
         cleanUp();
