@@ -297,10 +297,7 @@ h2 {
   width: 70%;
   padding: 0.1em 2.5% 0.35em;
   margin: 0 12.5%;
-}
-#start {
-  position: absolute;
-  top: 6vh;
+  top: 12vh;
 }
 
 .o-pop {
@@ -339,11 +336,14 @@ h2 {
 }
 
 
-/*! Hidden elements used in wider layouts */
+/*! Hidden elements used in other layouts */
 .about {
   display: none;
 }
 .rule {
+  display: none;
+}
+.too-short {
   display: none;
 }
 
@@ -495,6 +495,11 @@ h2 {
 /*! Media queries */
 @media screen and (min-width: 800px) {
 
+  .content-wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
   .b1-sidebar {
     float: left;
     margin-top: 2rem;
@@ -505,7 +510,7 @@ h2 {
     font-size: 4rem;
   }
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
   }
 
   .rule {
@@ -621,8 +626,10 @@ h2 {
   }
   
   .o-large {
-    width: 50%;
-    margin: 5rem 22.5%;
+    width: 45%;
+    margin: 0 25%;
+    padding: 0.1em 2.5% 0.35em;
+    top: 6rem;
   }
   
   .o-text {
@@ -631,6 +638,12 @@ h2 {
   
   .o-btn {
     font-size: 1.2rem;
+  }
+  
+  .o-pop {
+    width: 35%;
+    padding: 0.25em;
+    margin: 10% 29.5%;
   }
   
   .about {
@@ -661,4 +674,34 @@ h2 {
     background-size: 2.25rem 2.25rem;
     background-position: center center;
   }
+}
+
+@media screen and (max-height: 355px) {
+  * {
+    display: none !important;
+  }
+  
+  html,
+  body,
+  .wrapper,
+  .content-wrapper,
+  .too-short {
+    display: block !important;
+  }
+  
+  .ts-header {
+    text-align: center;
+    font-size: 2.5rem;
+    padding-top: 0.5rem;
+  }
+  .ts-text {
+    padding: 2% 5%;
+    color: #FAFAFA;
+    font-family: "Helvetica Neue", "Helvetica", sans-serif;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    text-shadow: 0.075rem 0.075rem 0.05rem #333;
+  }
+  
+  
 }
