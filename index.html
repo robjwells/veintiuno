@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8"/>
+  <title>Black Jack&rsquo;s Casino</title>
+  <link rel="stylesheet" href="reset.css" type="text/css" media="screen">
+  <link rel="stylesheet" href="blackjack.css" title="main" type="text/css" media="screen">
+  <script src="blackjack.js"></script>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+<div class="wrapper">
+<div class="content-wrapper">
+
+  <header>
+    <h1>Black Jack<span class="apost">&rsquo;</span>s Casino</h1>
+  </header>
+
+  <hr class="rule" />
+
+  <div id="start" class="overlay bg o-large animated">
+    <h2>Welcome</h2>
+    <p class="o-text">Click the button when you<span class="apost">&rsquo;</span>re ready to start.</p>
+    <button id="play" class="btn o-btn bg" type="button">Let<span class="apost">&rsquo;</span>s play!</button>
+  </div>
+  <div id="results" class="overlay bg o-large hide animated">
+    <h2 id="winner"></h2>
+    <p id="playercards" class="o-text"></p>
+    <p id="dealercards" class="o-text"></p>
+    <button id="again" class="btn o-btn bg">Play again</button>
+  </div>
+  <div id="status" class="overlay bg o-pop hide">
+    <h2 id="status-text"></h2>
+  </div>
+  <div id="about" class="overlay bg o-large hide animated">
+    <h2>About</h2>
+    <p class="o-text">This little blackjack game was made by <a class="o-text" href="http://robjwells.com">Rob 
+    Wells</a>, who you can also find <a class="o-text" href="http://twitter.com/robjwells">
+    on Twitter</a>.</p>
+    <p class="o-text">If you&rsquo;re poking around in the JavaScript console, take a look at 
+    the BJ object (hint hint).</p>
+    <button id="about-dismiss" class="btn o-btn bg">Enough!</button>
+  </div>
+  
+  <div class="score-bar b1-sidebar">
+    <div id="p-count" class="score">Player: 0</div>
+    <div id="d-count" class="score">Dealer: 0</div>
+  </div> <!-- .score-bar -->
+  
+  <div class="table">
+    <div id="player" class="hand">
+      <div class="card tilt-left flipped"><div class="back"></div></div>
+      <div class="card tilt-left flipped"><div class="back"></div></div>
+      <div class="card tilt-left flipped"><div class="back"></div></div>
+      <div class="card tilt-left flipped"><div class="back"></div></div>
+    </div>
+    <div id="dealer" class="hand">
+      <div class="card tilt-right flipped"><div class="back"></div></div>
+      <div class="card tilt-right flipped"><div class="back"></div></div>
+      <div class="card tilt-right flipped"><div class="back"></div></div>
+      <div class="card tilt-right flipped"><div class="back"></div></div>
+    </div>
+  </div> <!-- .table -->
+  
+  <div class="controls b1-sidebar">
+    <button id="hit" class="btn player-btn bg">Hit</button>
+    <button id="stand" class="btn player-btn bg">Stand</button>
+  </div> <!-- .controls -->
+  
+  <div id="about-button" class="about b1-sidebar">?</div>
+  
+  <div class="too-short">
+    <p class="too-short ts-header">Black Jack&rsquo;s Casino</p>
+    <p class="too-short ts-text">Sorry, but your window is too short to play comfortably. If you&rsquo;re
+    using a phone or tablet try rotating it into portrait orientation and refreshing the page.</p>
+  </div>
+
+</div> <!-- .content-wrapper -->
+</div> <!-- .wrapper -->
+</body>
+
+</html>
