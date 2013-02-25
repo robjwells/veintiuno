@@ -690,11 +690,11 @@ var BJ = (function () {
     return (function () {
         var myObj = Object.create(null),
             specialMessage = 'A little blackjack game made from HTML, CSS, ' +
-                'SVG and JavaScript by @robjwells.\nThanks go to the lovely' +
-                ' people at www.codecademy.com, who got me started.\nYou ' +
-                'should check them out!\n\nI\'m planning on putting up a ' +
-                'post-mortem on my blog in the next few days,\nso please ' +
-                'visit www.robjwells.com if you\'re interested.';
+                'SVG and JavaScript by\n@robjwells. Thanks go to the lovely' +
+                ' people at www.codecademy.com,\nwho got me started. You ' +
+                'should check them out!\n\nI\'ve written a bit about it ' +
+                'on my blog, if you\'re interested:\n' +
+                'http://robjwells.com/post/43984440715/blackjack';
         myObj.by = '@robjwells';
         myObj.invokeMe = function () { return specialMessage; };
         Object.freeze(myObj);
