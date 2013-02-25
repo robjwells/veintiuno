@@ -336,6 +336,12 @@ h2 {
 
 /*! Animation styles */
 
+/* 
+  Following animation styles copyright (c) 2012 Dan Eden
+  Animate.css - http://daneden.me/animate
+  MIT Licence
+*/
+
 .animated {
 	-webkit-animation-fill-mode: both;
      -moz-animation-fill-mode: both;
