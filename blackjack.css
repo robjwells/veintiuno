@@ -11,7 +11,7 @@
 html, body {
   min-height: 100%;
   height: 100%;
-  font: normal 150%/1 "LeagueGothicRegular", "League Gothic";
+  font: normal 150%/1 "LeagueGothicRegular", "League Gothic", sans-serif;
   background-color: #B00000;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
@@ -20,11 +20,11 @@ html, body {
   min-height: 100%;
   height: auto;
   width: 100%;
-  background: -webkit-radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
-  background:    -moz-radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
-  background:     -ms-radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
-  background:      -o-radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
-  background:         radial-gradient(50% 35%, circle cover, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background: -webkit-radial-gradient(50% 35%, circle farthest-side, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background:    -moz-radial-gradient(50% 35%, circle farthest-side, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background:     -ms-radial-gradient(50% 35%, circle farthest-side, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background:      -o-radial-gradient(50% 35%, circle farthest-side, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
+  background:         radial-gradient(50% 35%, circle farthest-side, #FF0F0F 0%, #D90A0A 40%, #B00000 90%);
   background-repeat: no-repeat;
 }
 
@@ -90,7 +90,7 @@ h2 {
   border-top: 3px double #F8B419;
   border-bottom: 3px double #F8B419;
   padding: 0.1em 0;
-  background-image: url(svg/star.svg);
+  background-image: url("svg/star.svg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size:contain;
@@ -524,7 +524,7 @@ h2 {
   .score-bar {
     float: left;
     width: 20%;
-    background-image: none;
+    background-image: none; /* Remove star.svg  */
     border: none; /* Clear thin-layout styling */
   }
   .score {
@@ -652,7 +652,6 @@ h2 {
          -o-transform: rotate(-10deg);
             transform: rotate(-10deg);
     
-/*     border: 0.2rem dashed #FAFAFA; */
     border-radius: 100%;
     box-shadow: 0.1rem 0.1rem 0.5rem rgba(0,0,0,0.6);
     
