@@ -665,6 +665,26 @@ var BJ = (function () {
         document.addEventListener('touchstart', function () {}, false);
     });
 
+    // vw+vh resize hack
+    window.addEventListener('resize', function () {
+        var x, i, els,
+            tags = ['h1', 'h2'],
+            classes = ['btn', 'num', 'o-text'];
+        // Trigger repaint on tags
+        for (x = 0; x < tags.length; x += 1) {
+            els = document.getElementsByTagName(tags[x]);
+            for (i = 0; i < els.length; i += 1) {
+                els[i].style.zIndex = els[i].style.zIndex;
+            }
+        }
+        // Same for classes
+        for (x = 0; x < classes.length; x += 1) {
+            els = document.getElementsByClassName(classes[x]);
+            for (i = 0; i < els.length; i += 1) {
+                els[i].style.zIndex = els[i].style.zIndex;
+            }
+        }
+    });
 
     // Create an object to store in BJ and return it
     return (function () {
