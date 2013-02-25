@@ -1,4 +1,6 @@
-A simple blackjack game you can play in your browser that I built to teach myself some HTML, CSS and JavaScript. (As such, the code is a bit of a mess.)
+A simple blackjack game you can play in your browser that I built to teach myself some HTML, CSS and JavaScript. As such, the code is a bit of a mess. If you’d like to know more, [I wrote a bit about it on my blog][blog].
+
+[blog]: http://robjwells.com/post/43984440715/blackjack
 
 ### Licence
 
